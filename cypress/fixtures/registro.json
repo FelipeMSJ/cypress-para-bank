@@ -1,0 +1,12 @@
+{
+    "customer.firstName": "Teste Nome",
+    "customer.lastName": "Teste Sobrenome",
+    "customer.address.street": "",
+    "customer.address.city": "Teste Cidade",
+    "customer.address.state":" Teste Estado",
+    "customer.address.zipCode": "12345678999",
+    "customer.phoneNumber": "12345678912",
+    "customer.ssn": "12345678977",
+    "customer.username": "Teste_Usuario2",
+    "customer.password": "senhaDeTeste"
+}
