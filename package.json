@@ -1,0 +1,14 @@
+{
+  "name": "para-bank",
+  "version": "1.0.0",
+  "description": "Prática de Cypress utilizando Para Bank",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress open"
+  },
+  "author": "Felipe Matheus",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^9.6.1"
+  }
+}

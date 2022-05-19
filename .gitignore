@@ -1,0 +1,3 @@
+cypress/integration/1-gettingstarted
+cypress/integration/2-advanced-examples
+cypress/fixtures/example.json
