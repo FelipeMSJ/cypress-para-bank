@@ -46,11 +46,4 @@ Cypress.Commands.add('registrarUsuario', ()=>{
     //Botão de registro
     cy.get('input[value="Register"]').click()
 
-    cy.request({
-        method: 'POST',
-        url: 'https://parabank.parasoft.com/parabank/register.htm;*'
-    }).then((resposta)=>{
-        expect(resposta.status).to.be.eq(200)
-        //expect().to.be.eq(`Welcome ${cadastro["customer.username"]}`)
-    })
 })
