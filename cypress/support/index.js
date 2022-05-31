@@ -29,19 +29,47 @@ Cypress.Commands.add('registrarUsuario', ()=>{
     const cadastro = require("../../cypress/fixtures/registro.json")
 
     //Preenchimento do formulário de registro
-    cy.get('input[id="customer.firstName"]').type(cadastro["customer.firstName"])
-    cy.get('input[id="customer.lastName"]').type(cadastro["customer.lastName"])
-    cy.get('input[id="customer.address.street"]').type(cadastro["customer.address.state"])
-    cy.get('input[id="customer.address.city"]').type(cadastro["customer.address.city"])
-    cy.get('input[id="customer.address.state"]').type(cadastro["customer.address.state"])
-    cy.get('input[id="customer.address.zipCode"]').type(cadastro["customer.address.zipCode"])
-    cy.get('input[id="customer.phoneNumber"]').type(cadastro["customer.phoneNumber"])
-    cy.get('input[id="customer.ssn"]').type(cadastro["customer.ssn"])
+    cy.get('input[id="customer.firstName"]')
+        .clear()
+        .type(cadastro["customer.firstName"])
+        .invoke('val')
+        .should('match', /^[a-zA-Z\s]*$/)
+    
+    cy.get('input[id="customer.lastName"]')
+        .clear()
+        .type(cadastro["customer.lastName"])
+
+    cy.get('input[id="customer.address.street"]')
+        .clear()
+        .type(cadastro["customer.address.state"])
+
+    cy.get('input[id="customer.address.city"]')
+        .clear()
+        .type(cadastro["customer.address.city"])
+
+    cy.get('input[id="customer.address.state"]')
+        .clear()
+        .type(cadastro["customer.address.state"])
+
+    cy.get('input[id="customer.address.zipCode"]')
+        .clear()
+        .type(cadastro["customer.address.zipCode"])
+
+    cy.get('input[id="customer.phoneNumber"]')
+        .clear()
+        .type(cadastro["customer.phoneNumber"])
+        .invoke('val')
+        .should('have.length', 15)  //Telefone deve ter tamanho 15
+        .and('match', /^[\d]*$/)   //Telefone deve conter somente números
+
+    cy.get('input[id="customer.ssn"]')
+        .clear()
+        .type(cadastro["customer.ssn"])
 
     //Preenchimento de Usuário e Senha
-    cy.get('input[id="customer.username"]').type(cadastro["customer.username"])
-    cy.get('input[id="customer.password"]').type(cadastro["customer.password"])
-    cy.get('input[id="repeatedPassword"]').type(cadastro["customer.password"])
+    cy.get('input[id="customer.username"]').clear().type(cadastro["customer.username"])
+    cy.get('input[id="customer.password"]').clear().type(cadastro["customer.password"])
+    cy.get('input[id="repeatedPassword"]').clear().type(cadastro["customer.password"])
 
     //Botão de registro
     cy.get('input[value="Register"]').click()
